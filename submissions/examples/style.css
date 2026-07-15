@@ -1,0 +1,203 @@
+:root{
+
+    --ease-bg:#e8edf5;
+
+    --ease-card:#e8edf5;
+
+    --ease-text:#222;
+
+    --ease-shadow-dark:#b5bcc8;
+
+    --ease-shadow-light:#ffffff;
+
+    --ease-transition:.35s ease;
+
+    --ease-cascade:cubic-bezier(.68,-0.55,.27,1.55);
+
+}
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--ease-bg);
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-family:Arial,sans-serif;
+
+}
+
+.ease-demo{
+
+    text-align:center;
+
+}
+
+.ease-demo h1{
+
+    margin-bottom:10px;
+
+    color:var(--ease-text);
+
+}
+
+.ease-demo p{
+
+    margin-bottom:35px;
+
+    color:#666;
+
+}
+
+.ease-navbar{
+
+    display:flex;
+
+    gap:18px;
+
+    padding:18px;
+
+    border-radius:22px;
+
+    background:var(--ease-card);
+
+    box-shadow:
+
+    10px 10px 25px var(--ease-shadow-dark),
+
+    -10px -10px 25px var(--ease-shadow-light);
+
+}
+
+.ease-nav-item{
+
+    text-decoration:none;
+
+    color:var(--ease-text);
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    transition:var(--ease-transition);
+
+    animation:ease-nav-cascade .8s var(--ease-cascade) both;
+
+}
+
+.ease-nav-item:nth-child(1){
+
+    animation-delay:.1s;
+
+}
+
+.ease-nav-item:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.ease-nav-item:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+.ease-nav-item:nth-child(4){
+
+    animation-delay:.4s;
+
+}
+
+.ease-nav-item:nth-child(5){
+
+    animation-delay:.5s;
+
+}
+
+.ease-nav-item:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    inset 4px 4px 10px var(--ease-shadow-dark),
+
+    inset -4px -4px 10px var(--ease-shadow-light),
+
+    0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.ease-nav-item:focus-visible{
+
+    outline:2px solid royalblue;
+
+    outline-offset:5px;
+
+}
+
+@keyframes ease-nav-cascade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .ease-navbar{
+
+        flex-direction:column;
+
+        width:260px;
+
+    }
+
+    .ease-nav-item{
+
+        text-align:center;
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+    }
+
+}
